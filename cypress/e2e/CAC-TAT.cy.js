@@ -12,7 +12,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#firstName').type('Gabrielle')
     cy.get('#lastName').type('Kieffer')
     cy.get('#email').type('gabikieffer4@gmail.com')
-    cy.get('#open-text-area').type(longText, {delay: 0})
+    cy.get('#open-text-area').type(longText, {delay: 0.5})
     cy.contains('button', 'Enviar').click()
     cy.get('.success').should('be.visible')
   })
@@ -76,6 +76,33 @@ cy.contains('button', 'Enviar').click()
     cy.fillMandatoryFieldsAndSubmit()
 
     cy.get('.success').should('be.visible')
+  })
+
+
+  // utilizando a função select para selecionar pelo texto
+
+  it('seleciona um produto (Youtube) por seu texto', () =>{
+    cy.get('#product')
+    .select('YouTube')
+    .should('have.value', 'youtube')
+  })
+
+  
+  // utilizando a função select para selecionar pelo valor
+
+  it.only('seleciona um produto (Mentoria) por seu valor', () =>{
+    cy.get('#product')
+    .select('mentoria')
+    .should('have.value', 'mentoria')
+  })
+
+  
+  // utilizando a função select para selecionar pelo indice
+
+  it.only('seleciona um produto (Blog) por seu texto', () =>{
+    cy.get('#product')
+    .select(1)
+    .should('have.value', 1)
   })
 
 })
