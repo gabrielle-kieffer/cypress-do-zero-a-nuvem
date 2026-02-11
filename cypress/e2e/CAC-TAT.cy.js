@@ -32,12 +32,12 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', '')
   })
 
-  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     cy.get('#firstName').type('Gabrielle')
     cy.get('#lastName').type('Kieffer')
     cy.get('#email').type('gabikieffer4@gmail.com')
     cy.get('#open-text-area').type('Text')
-    cy.get('#phone-checkbox').click()
+    cy.get('#phone-checkbox').check()
     cy.contains('button', 'Enviar').click()
     cy.get('.error').should('be.visible')
   })
@@ -90,7 +90,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   // utilizando a função select para selecionar pelo valor
 
-  it.only('seleciona um produto (Mentoria) por seu valor', () => {
+  it('seleciona um produto (Mentoria) por seu valor', () => {
     cy.get('#product')
       .select('mentoria')
       .should('have.value', 'mentoria')
@@ -99,25 +99,34 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   // utilizando a função select para selecionar pelo indice
 
-  it('seleciona um produto (Blog) por seu texto', () => {
+  it('seleciona um produto "Blog" por seu texto', () => {
     cy.get('#product')
       .select(1)
-      .should('have.value', 1)
+      .should('have.value', 'blog')
   })
 
   it('marca o tipo de atendimento "Feedback"', () => {
-    cy.get('input[type="radio""] [value="feedback"]')
+    cy.get('input[type="radio"][value="feedback"]')
       .check()
       .should('be.checked')
   })
 
   it('marca cada tipo de atendimento', () => {
-    cy.get('input[type-"raio"')
+    cy.get('input[type= "radio"]')
       .each(typeOfService => {
-        cy.warp(typeOfService)
+        cy.wrap(typeOfService)
           .check()
           .should('be.checked')
       })
+  })
+
+  it('marca ambos checkboxes e depois desmarcar o último', () => {
+    cy.get('input[type= "checkbox"]')
+     .check()
+     .should('be.checked')
+     .last()
+     .uncheck()
+     .should('not.be.checked')
   })
 
 })
