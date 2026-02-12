@@ -66,12 +66,12 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('envia o formulário com sucesso usando um comando customizado', () => {
-    // const data = {
-    //   firstName: 'Gabrielle',
-    //   lastName: 'Kieffer',
-    //   email: 'gabikieffer4@gmail.com',
-    //   text:'Teste.'
-    // }
+    const data = {
+      firstName: 'Gabrielle',
+      lastName: 'Kieffer',
+      email: 'gabikieffer4@gmail.com',
+      text:'Teste.'
+    }
 
     cy.fillMandatoryFieldsAndSubmit()
 
@@ -168,5 +168,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
     cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
   })
+
+
+  // simulando as dimensões de um dispositivo móvel
+
 
 })
