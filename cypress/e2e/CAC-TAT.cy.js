@@ -134,19 +134,39 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   it('seleciona um arquivo da pasta fixtures', () => {
     cy.get('#file-upload')
-    .selectFile('cypress\fixtures\example.json', {action: 'drag-drop'})
+    .selectFile('cypress/fixtures/example.json', {action: 'drag-drop'})
     .should(input =>{
      expect(input[0].files[0].name).to.equal('example.json')
     })
   })
 
-  it.only('selecione um arquivo para o qual foi dado um alias', () => {
+  it('selecione um arquivo para o qual foi dado um alias', () => {
     cy.fixture('example.json').as('sampleFile')
     cy.get('#file-upload')
     .selectFile('@sampleFile', {action: 'drag-drop'})
     .should(input =>{
      expect(input[0].files[0].name).to.equal('example.json')
     })
+  })
+
+  // lidando com links que abrem em outra aba do navegador
+
+// primeiro teste simulamos a abertura do link em outra aba
+
+  it('verifica que a política de privacidade abre em outra aba sem necessidade de um clique', () => {
+    cy.contains('a', 'Política de Privacidade')
+    .should('have.attr', 'href', 'privacy.html')
+    .and('have.attr', 'target', '_blank')
+  })
+
+  // segundo teste acessamos as informações do link removendo o target com a função invoke, ou seja, sem abrir me outra aba
+
+  it('acessa a página da política de privacidade removendo o target e clica no link', () => {
+    cy.contains('a', 'Política de Privacidade')
+    .invoke('removeAttr', 'target')
+    .click()
+
+    cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
   })
 
 })
