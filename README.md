@@ -34,13 +34,21 @@ Node.js
 HTML5
 
 ✔️ Cobertura de Testes
+
 ✔️ Validação de título da aplicação
+
 ✔️ Submissão de formulário (cenário positivo e negativo)
+
 ✔️ Validação de campo numérico (telefone)
+
 ✔️ Seleção via select (texto, valor e índice)
+
 ✔️ Radio buttons e checkboxes
+
 ✔️ Upload de arquivos via fixture
+
 ✔️ Manipulação de links com target="_blank"
+
 ✔️ Uso de comando customizado (cy.fillMandatoryFieldsAndSubmit())
 
 ## Execução
