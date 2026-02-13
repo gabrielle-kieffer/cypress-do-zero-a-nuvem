@@ -45,6 +45,7 @@ HTML5
 
 ## Execução
 npm install
+
 npx cypress open
 
 
