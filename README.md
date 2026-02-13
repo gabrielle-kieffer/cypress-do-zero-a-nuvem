@@ -1,28 +1,80 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+## Central de Atendimento ao Cliente TAT
 
-👋 Seja bem-vindo(a)!
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Suite de testes automatizados E2E desenvolvida com Cypress como parte do curso Cypress do Zero à Nuvem.
 
-## O que você vai aprender?
+Este projeto tem como objetivo praticar automação de testes end-to-end cobrindo os principais fluxos funcionais da aplicação.
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+## Contexto
 
-## Vamos começar?
+Projeto desenvolvido durante o curso Cypress do Zero à Nuvem, com implementação prática dos seguintes conceitos:
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+Estruturação de testes E2E
 
-___
+Validações de formulário
 
-Este é um curso da **Escola Talking About Testing**.
+Manipulação de elementos DOM
+
+Upload de arquivos
+
+Comandos customizados
+
+Boas práticas com Cypress
+
+Os testes foram implementados e executados por mim como parte do aprendizado prático em automação.
+
+## Stack Técnica
+
+Cypress
+
+JavaScript (ES6+)
+
+Node.js
+
+HTML5
+
+✔️ Cobertura de Testes
+✔️ Validação de título da aplicação
+✔️ Submissão de formulário (cenário positivo e negativo)
+✔️ Validação de campo numérico (telefone)
+✔️ Seleção via select (texto, valor e índice)
+✔️ Radio buttons e checkboxes
+✔️ Upload de arquivos via fixture
+✔️ Manipulação de links com target="_blank"
+✔️ Uso de comando customizado (cy.fillMandatoryFieldsAndSubmit())
+
+## Execução
+npm install
+npx cypress open
+
+
+Ou modo headless:
+
+npx cypress run
+
+## Conceitos Demonstrados
+
+Automação E2E
+
+Assertions encadeadas
+
+DRY com comandos customizados
+
+Uso de fixtures
+
+Tratamento de múltiplos tipos de input
+
+Manipulação de atributos HTML
+
+Estratégias para contornar navegação em nova aba
+
+## Próximos Passos (Evolução Técnica)
+
+Adicionar integração com CI (GitHub Actions)
+
+
+👩‍💻 Autora
+
+Gabrielle Kieffer
+
+Projeto desenvolvido como prática durante o curso Cypress do Zero à Nuvem, com foco em evolução para atuação como QA/Automation Engineer.
