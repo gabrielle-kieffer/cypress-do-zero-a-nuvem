@@ -194,7 +194,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
   })
 
-  it.only('faz uma requisição HTTP', () => {
+  it('faz uma requisição HTTP', () => {
     cy.request('https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
     .as('getRequest')
     .its('status')
@@ -207,7 +207,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .should('include', 'CAC TAT')
   })
 
-  it.only('encontra o gato escondido', () => {
+  it('encontra o gato escondido', () => {
      cy.get('#cat')
      .invoke('show')
      .should('be.visible')
